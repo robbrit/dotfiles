@@ -5,7 +5,7 @@ set number
 set sw=2
 set smarttab
 set ai
-set guifont=Courier\ New\ 10
+set guifont=Inconsolata\ 13
 set nowrap
 set bs=2
 set et
