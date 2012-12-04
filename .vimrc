@@ -41,9 +41,22 @@ map <C-T> <Esc>:tabnew
 map <C-Tab> <Esc>gt
 map <C-S-Tab> <Esc>gT
 
+" Unbind K since it is annoying
+map K k
+
+" Map F1 to Esc since I keep hitting it when I try to hit escape
+map <F1> <Esc>
+imap <F1> <Esc>
+
+" Map ' to " so that I don't have to use Shift to switch registers
+map ' "
+
 " .m files are for Matlab/Octave
 au BufNewFile,BufRead *.m set ft=matlab
 " .pde is Arduino
 au BufNewFile,BufRead *.pde set ft=c
-" .ejs are JST
-au BufNewFile,BufRead *.ejs set ft=html
+" .json is Javascript
+au BufNewFile,BufRead *.json set ft=javascript
+
+" disable folding since it is annoying
+set nofoldenable
