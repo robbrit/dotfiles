@@ -19,8 +19,7 @@ set go-=mT
 set showtabline=2  " Always show tab bar
 
 " disable error bells
-set noeb vb t_vb=
-set novb
+set vb t_vb=
 
 " show 80 character limit
 set colorcolumn=80
