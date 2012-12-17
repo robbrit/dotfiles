@@ -56,6 +56,8 @@ au BufNewFile,BufRead *.m set ft=matlab
 au BufNewFile,BufRead *.pde set ft=c
 " .json is Javascript
 au BufNewFile,BufRead *.json set ft=javascript
+" .mustache is Mustache
+au BufNewFile,BufRead *.mustache set ft=mustache
 
 " disable folding since it is annoying
 set nofoldenable
