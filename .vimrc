@@ -61,3 +61,6 @@ au BufNewFile,BufRead *.mustache set ft=mustache
 
 " disable folding since it is annoying
 set nofoldenable
+
+" Map Ctrl+F to fuzzy finder
+map <C-F> <Esc>:tabnew<CR>:FufCoverageFile<CR>
