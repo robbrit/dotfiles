@@ -64,3 +64,7 @@ set nofoldenable
 
 " Map Ctrl+F to fuzzy finder
 map <C-F> <Esc>:tabnew<CR>:FufCoverageFile<CR>
+
+" Fuzzy Finder excludes - exclude zend and node modules
+let g:fuf_coveragefile_exclude='\vnode_modules|library|log'
+let g:fuf_coveragefile_prompt = "Find> "
