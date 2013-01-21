@@ -61,3 +61,6 @@ au BufNewFile,BufRead *.mustache set ft=mustache
 
 " disable folding since it is annoying
 set nofoldenable
+ 
+" load pathogen
+call pathogen#infect()
