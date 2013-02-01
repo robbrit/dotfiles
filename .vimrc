@@ -15,7 +15,8 @@ if has("gui_running")
 endif
 
 " Some GUI options
-set go-=mT
+set go-=m
+set go-=T
 set showtabline=2  " Always show tab bar
 
 " disable error bells
