@@ -11,7 +11,7 @@ set bs=2
 set et
 set incsearch
 if has("gui_running")
-  set lines=50 columns=150
+  set lines=53 columns=150
 endif
 
 " Some GUI options
@@ -66,9 +66,14 @@ set nofoldenable
 " load pathogen
 call pathogen#infect()
 
-" Map Ctrl+F to fuzzy finder
+" Map Ctrl+F to fuzzy finder in new tab
+" Map Ctrl+Shift+F to fuzzy finder in current tab
 map <C-F> <Esc>:tabnew<CR>:FufCoverageFile<CR>
+map <C-S-F> <Esc>:FufCoverageFile<CR>
 
 " Fuzzy Finder excludes - exclude zend and node modules
 let g:fuf_coveragefile_exclude='\vnode_modules|library|log|*.swp$'
 let g:fuf_coveragefile_prompt = "Find> "
+
+" some colour corrections
+highlight Pmenu guibg=#333
