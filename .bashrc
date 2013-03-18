@@ -40,6 +40,6 @@ BLUE='\[\033[01;34m\]'
 
 PS1="${debian_chroot:+($debian_chroot)}$GREEN\u@\h$BLUE \w $YELLOW\$(parse_git_branch)$BLUE\$ $GREY"
 
-if [ -f .bashlocal ]; then
-  source .bashlocal;
+if [ -f ~/.bashlocal ]; then
+  source ~/.bashlocal;
 fi
