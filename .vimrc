@@ -71,8 +71,8 @@ call pathogen#infect()
 map <C-F> <Esc>:tabnew<CR>:FufCoverageFile<CR>
 map <C-S-F> <Esc>:FufCoverageFile<CR>
 
-" Fuzzy Finder excludes - exclude zend and node modules
-let g:fuf_coveragefile_exclude='\vnode_modules|library|log|*.swp$'
+" Fuzzy Finder excludes - exclude zend, node modules, virtualenv stuff
+let g:fuf_coveragefile_exclude='\vnode_modules|library|log|lib|bin|local|include|*.swp$'
 let g:fuf_coveragefile_prompt = "Find> "
 
 " some colour corrections
