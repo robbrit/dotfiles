@@ -63,6 +63,40 @@ au BufNewFile,BufRead *.phtml set ft=php
 
 " disable folding since it is annoying
 set nofoldenable
+
+" Map Ctrl+F to fuzzy finder in new tab
+" Map Ctrl+Shift+F to fuzzy finder in current tab
+map <C-F> <Esc>:tabnew<CR>:FufCoverageFile<CR>
+map <C-S-F> <Esc>:FufCoverageFile<CR>
+map <Leader>f :FufRenewCache<CR>
+
+" Fuzzy Finder excludes - exclude zend, node modules, virtualenv stuff
+let g:fuf_coveragefile_exclude='\vnode_modules|library|\vlog\v|\vlib|bin|local|include[^s]|*.(swp|png|jpg|ico|swo|bson)$'
+let g:fuf_coveragefile_prompt = "Find> "
+highlight Pmenu guibg=#333      " Choose colour that doesn't make eyes bleed
+
+" Python plugin settings
+let g:pymode_lint_mccabe_complexity = 100
+let g:pep8_ignore="E501,E126,E127"
+
+" All my stupid spelling mistakes
+iab optoins options
+iab functoin function
+iab locatoin location
+iab lcoation location
+iab lcoatoin location
+iab itneger integer
+
+" PHP stuff
+function! OpenPHPManual(keyword)
+  let firefox = '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
+  let url = 'http://www.php.net/' . a:keyword
+  exec '! firefox "' . url . '"'
+endfunction
+autocmd FileType php noremap K :call OpenPHPManual(expand('<cword>'))<CR>
+autocmd FileType php noremap <Leader>c :!/usr/bin/env php -l %<CR>
+autocmd FileType phtml noremap K :call OpenPHPManual(expand('<cword>'))<CR>
+autocmd FileType phtml noremap <Leader>c :!/usr/bin/env php -l %<CR>
  
 " load pathogen
 call pathogen#infect()
@@ -78,33 +112,3 @@ call pathogen#infect()
 " - jslint
 " - mustache
 " - python-mode
-
-" Map Ctrl+F to fuzzy finder in new tab
-" Map Ctrl+Shift+F to fuzzy finder in current tab
-map <C-F> <Esc>:tabnew<CR>:FufCoverageFile<CR>
-map <C-S-F> <Esc>:FufCoverageFile<CR>
-map <Leader>f :FufRenewCache<CR>
-
-" Fuzzy Finder excludes - exclude zend, node modules, virtualenv stuff
-let g:fuf_coveragefile_exclude='\vnode_modules|library|\vlog\v|\vlib|bin|local|include[^s]|*.(swp|png|jpg|ico)$'
-let g:fuf_coveragefile_prompt = "Find> "
-highlight Pmenu guibg=#333      " Choose colour that doesn't make eyes bleed
-
-" Python plugin settings
-let g:pymode_lint_mccabe_complexity = 100
-
-" All my stupid spelling mistakes
-iab optoins options
-iab functoin function
-iab locatoin location
-
-" PHP stuff
-function! OpenPHPManual(keyword)
-  let firefox = '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
-  let url = 'http://www.php.net/' . a:keyword
-  exec '! firefox "' . url . '"'
-endfunction
-autocmd FileType php noremap K :call OpenPHPManual(expand('<cword>'))<CR>
-autocmd FileType php noremap <Leader>c :!/usr/bin/env php -l %<CR>
-autocmd FileType phtml noremap K :call OpenPHPManual(expand('<cword>'))<CR>
-autocmd FileType phtml noremap <Leader>c :!/usr/bin/env php -l %<CR>
