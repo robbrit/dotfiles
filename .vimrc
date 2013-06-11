@@ -23,6 +23,10 @@ endif
 set go-=m
 set go-=T
 set showtabline=2  " Always show tab bar
+set laststatus=2
+
+" Improve performance for long lines
+set synmaxcol=240
 
 " disable error bells
 set vb t_vb=
@@ -42,9 +46,11 @@ set nocompatible  " We don't want vi compatibility.
 set viminfo^=!
 
 " Some key bindings
-map <C-T> <Esc>:tabnew 
-map <C-Tab> <Esc>gt
-map <C-S-Tab> <Esc>gT
+noremap <C-T> <Esc>:tabnew 
+noremap <C-Tab> <Esc>gt
+noremap <C-S-Tab> <Esc>gT
+" disable Ex mode
+noremap Q <Esc>
 let mapleader=","
 
 " Map F1 to Esc since I keep hitting it when I try to hit escape
@@ -98,17 +104,28 @@ autocmd FileType php noremap <Leader>c :!/usr/bin/env php -l %<CR>
 autocmd FileType phtml noremap K :call OpenPHPManual(expand('<cword>'))<CR>
 autocmd FileType phtml noremap <Leader>c :!/usr/bin/env php -l %<CR>
  
-" load pathogen
-call pathogen#infect()
+" load vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
 
-" Bundles I like:
-" - indentLine
-" - ScrollColors
-" - vim-indent-object
-" - Powerline
-"
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" Some bundles
+Bundle "Yggdroot/indentLine"
+Bundle "ScrollColors"
+Bundle "michaeljsmith/vim-indent-object"
+Bundle "Lokaltog/powerline"
+Bundle "FuzzyFinder"
+Bundle "scrooloose/syntastic"
+Bundle "marvim"
+
 " Language-specific Bundles:
-" - vim-coffee-script
-" - jslint
-" - mustache
-" - python-mode
+Bundle "kchmck/vim-coffee-script"
+Bundle "hallettj/jslint.vim"
+Bundle "juvenn/mustache.vim"
+Bundle "klen/python-mode"
+Bundle "groenewege/vim-less"
+
+filetype plugin indent on
