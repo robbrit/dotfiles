@@ -46,12 +46,15 @@ set nocompatible  " We don't want vi compatibility.
 set viminfo^=!
 
 " Some key bindings
+let mapleader=","
 noremap <C-T> <Esc>:tabnew 
 noremap <C-Tab> <Esc>gt
 noremap <C-S-Tab> <Esc>gT
 " disable Ex mode
 noremap Q <Esc>
-let mapleader=","
+
+noremap <Leader>x <Esc>:x<CR>
+noremap <Leader>w <Esc>:w<CR>
 
 " Map F1 to Esc since I keep hitting it when I try to hit escape
 map <F1> <Esc>
@@ -81,10 +84,6 @@ let g:fuf_coveragefile_exclude='\vnode_modules|library|\vlog\v|\vlib|bin|local|i
 let g:fuf_coveragefile_prompt = "Find> "
 highlight Pmenu guibg=#333      " Choose colour that doesn't make eyes bleed
 
-" Python plugin settings
-let g:pymode_lint_mccabe_complexity = 100
-let g:pep8_ignore="E501,E126,E127"
-
 " All my stupid spelling mistakes
 iab optoins options
 iab functoin function
@@ -103,6 +102,13 @@ autocmd FileType php noremap K :call OpenPHPManual(expand('<cword>'))<CR>
 autocmd FileType php noremap <Leader>c :!/usr/bin/env php -l %<CR>
 autocmd FileType phtml noremap K :call OpenPHPManual(expand('<cword>'))<CR>
 autocmd FileType phtml noremap <Leader>c :!/usr/bin/env php -l %<CR>
+
+" Python plugin settings
+let g:pymode_lint_mccabe_complexity = 100
+let g:pymode_lint_ignore="E501,E126,E127"
+let g:pep8_ignore="E501,E126,E127"
+let g:syntastic_python_checker="flake8"
+let g:syntastic_python_checker_args="--ignore=E501,E126,E127"
  
 " load vundle
 filetype off
@@ -127,5 +133,7 @@ Bundle "hallettj/jslint.vim"
 Bundle "juvenn/mustache.vim"
 Bundle "klen/python-mode"
 Bundle "groenewege/vim-less"
+Bundle "jnwhiteh/vim-golang"
+Bundle "davidhalter/jedi-vim"
 
 filetype plugin indent on
