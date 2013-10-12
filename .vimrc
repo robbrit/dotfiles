@@ -135,5 +135,6 @@ Bundle "klen/python-mode"
 Bundle "groenewege/vim-less"
 Bundle "jnwhiteh/vim-golang"
 Bundle "plasticboy/vim-markdown"
+Bundle "digitaltoad/vim-jade"
 
 filetype plugin indent on
