@@ -70,9 +70,6 @@ au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead *.mustache set ft=mustache
 au BufNewFile,BufRead *.phtml set ft=php
 
-" disable folding since it is annoying
-set nofoldenable
-
 " Map Ctrl+F to fuzzy finder in new tab
 " Map Ctrl+Shift+F to fuzzy finder in current tab
 map <C-F> <Esc>:tabnew<CR>:FufCoverageFile<CR>
@@ -80,7 +77,7 @@ map <C-S-F> <Esc>:FufCoverageFile<CR>
 map <Leader>f :FufRenewCache<CR>
 
 " Fuzzy Finder excludes - exclude zend, node modules, virtualenv stuff
-let g:fuf_coveragefile_exclude='\vnode_modules|library|\vlog\v|\vlib|bin|local|include[^s]|*.(swp|png|jpg|ico|swo|bson)$'
+let g:fuf_coveragefile_exclude='\vnode_modules|library|\vlog\v|\vlib|bin|local|dump|include[^s]|*.(swp|png|jpg|ico|swo|bson)$'
 let g:fuf_coveragefile_prompt = "Find> "
 highlight Pmenu guibg=#333      " Choose colour that doesn't make eyes bleed
 
@@ -94,7 +91,6 @@ iab itneger integer
 
 " PHP stuff
 function! OpenPHPManual(keyword)
-  let firefox = '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
   let url = 'http://www.php.net/' . a:keyword
   exec '! firefox "' . url . '"'
 endfunction
@@ -137,3 +133,6 @@ Bundle "jnwhiteh/vim-golang"
 Bundle "plasticboy/vim-markdown"
 
 filetype plugin indent on
+
+" disable folding since it is annoying
+set nofoldenable
