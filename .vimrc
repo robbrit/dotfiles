@@ -55,6 +55,7 @@ noremap Q <Esc>
 
 noremap <Leader>x <Esc>:x<CR>
 noremap <Leader>w <Esc>:w<CR>
+noremap <Leader>q <Esc>:q<CR>
 
 " Map F1 to Esc since I keep hitting it when I try to hit escape
 map <F1> <Esc>
