@@ -136,6 +136,7 @@ Bundle "jnwhiteh/vim-golang"
 Bundle "plasticboy/vim-markdown"
 Bundle "digitaltoad/vim-jade"
 Bundle "tclem/vim-arduino"
+Bundle "leafgarland/typescript-vim"
 
 filetype plugin indent on
 
