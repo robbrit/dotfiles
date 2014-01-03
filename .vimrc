@@ -105,6 +105,8 @@ let g:pymode_lint_ignore="E501,E126,E127"
 let g:pep8_ignore="E501,E126,E127"
 let g:syntastic_python_checker="flake8"
 let g:syntastic_python_checker_args="--ignore=E501,E126,E127"
+
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
  
 " load vundle
 filetype off
@@ -132,6 +134,7 @@ Bundle "groenewege/vim-less"
 Bundle "jnwhiteh/vim-golang"
 Bundle "plasticboy/vim-markdown"
 Bundle "digitaltoad/vim-jade"
+Bundle "tclem/vim-arduino"
 
 filetype plugin indent on
 
