@@ -108,6 +108,9 @@ let g:syntastic_python_checker="flake8"
 let g:syntastic_python_checker_args="--ignore=E501,E126,E127"
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
+let g:syntastic_coffee_checkers = ['coffeelint']
+let g:syntastic_coffee_coffeelint_args = ' --csv --f ~/.coffeelint.json'
  
 " load vundle
 filetype off
