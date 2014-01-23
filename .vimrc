@@ -127,6 +127,7 @@ Bundle "marvim"
 " Language-specific Bundles:
 Bundle "kchmck/vim-coffee-script"
 Bundle "hallettj/jslint.vim"
+Bundle "wookiehangover/jshint"
 Bundle "juvenn/mustache.vim"
 Bundle "klen/python-mode"
 Bundle "groenewege/vim-less"
