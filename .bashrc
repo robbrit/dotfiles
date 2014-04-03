@@ -24,6 +24,7 @@ alias l='ls'
 alias v='gvim'
 alias sb='source bin/activate'
 alias py='python'
+alias nt='nosetests'
 
 # Stuff to show the active git branch in the console
 function parse_git_branch {
@@ -48,3 +49,5 @@ PS1="${debian_chroot:+($debian_chroot)}$GREEN\u@\h$BLUE \w $YELLOW\$(parse_git_b
 if [ -f ~/.bashlocal ]; then
   source ~/.bashlocal;
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

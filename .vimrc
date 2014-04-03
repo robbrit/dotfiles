@@ -15,6 +15,10 @@ set et
 set ts=2
 set sw=2
 
+" Use Bash-like tab completion
+set wildmode=longest,list,full
+set wildmenu
+
 if has("gui_running")
   set lines=53 columns=150
 endif
@@ -71,16 +75,9 @@ au BufNewFile,BufRead *.json set ft=javascript
 au BufNewFile,BufRead *.mustache set ft=mustache
 au BufNewFile,BufRead *.phtml set ft=php
 
-" Map Ctrl+F to fuzzy finder in new tab
-" Map Ctrl+Shift+F to fuzzy finder in current tab
-map <C-F> <Esc>:tabnew<CR>:FufCoverageFile<CR>
-map <C-S-F> <Esc>:FufCoverageFile<CR>
-map <Leader>f :FufRenewCache<CR>
-
-" Fuzzy Finder excludes - exclude zend, node modules, virtualenv stuff
-let g:fuf_coveragefile_exclude='\vnode_modules|library|\vlog\v|\vlib|bin|local|dump|include[^s]|*.(swp|png|jpg|ico|swo|bson)$'
-let g:fuf_coveragefile_prompt = "Find> "
-highlight Pmenu guibg=#333      " Choose colour that doesn't make eyes bleed
+" Command-T stuff
+map <Leader>f :CommandTFlush<CR>
+let g:CommandTWildIgnore=&wildignore . ",node_modules/*,library/*,bin/*,src/*,lib/*,local/*,dump/*,include/*,*.swp,*.png,*.jpg,*.ico,*.bson,*.swo,*.pyc"
 
 " All my stupid spelling mistakes
 iab optoins options
@@ -102,10 +99,12 @@ autocmd FileType phtml noremap <Leader>c :!/usr/bin/env php -l %<CR>
 
 " Python plugin settings
 let g:pymode_lint_mccabe_complexity = 100
-let g:pymode_lint_ignore="E501,E126,E127"
-let g:pep8_ignore="E501,E126,E127"
+let g:pymode_lint_ignore="E501,E126,E127,C901"
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pep8_ignore="E501,E126,E127,C901"
 let g:syntastic_python_checker="flake8"
-let g:syntastic_python_checker_args="--ignore=E501,E126,E127"
+let g:syntastic_python_checker_args="--ignore=E501,E126,E127,C901"
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
@@ -125,14 +124,15 @@ Bundle "Yggdroot/indentLine"
 Bundle "ScrollColors"
 Bundle "michaeljsmith/vim-indent-object"
 Bundle "Lokaltog/powerline"
-Bundle "FuzzyFinder"
+"Bundle "FuzzyFinder"
+Bundle "wincent/Command-T"
 Bundle "scrooloose/syntastic"
 Bundle "marvim"
 
 " Language-specific Bundles:
 Bundle "kchmck/vim-coffee-script"
 Bundle "hallettj/jslint.vim"
-Bundle "wookiehangover/jshint"
+Bundle "wookiehangover/jshint.vim"
 Bundle "juvenn/mustache.vim"
 Bundle "klen/python-mode"
 Bundle "groenewege/vim-less"
@@ -141,6 +141,7 @@ Bundle "plasticboy/vim-markdown"
 Bundle "digitaltoad/vim-jade"
 Bundle "tclem/vim-arduino"
 Bundle "leafgarland/typescript-vim"
+Bundle "tpope/vim-rails"
 
 filetype plugin indent on
 
