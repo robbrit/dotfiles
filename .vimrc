@@ -21,6 +21,9 @@ set wildmenu
 
 if has("gui_running")
   set lines=53 columns=150
+  colorscheme tir_black
+else
+  colorschem pablo
 endif
 
 " Some GUI options
@@ -43,7 +46,6 @@ filetype indent on
 filetype plugin on
 
 syntax enable
-colorscheme tir_black
 
 set nocompatible  " We don't want vi compatibility.
  
@@ -142,6 +144,7 @@ Bundle "digitaltoad/vim-jade"
 Bundle "tclem/vim-arduino"
 Bundle "leafgarland/typescript-vim"
 Bundle "tpope/vim-rails"
+Bundle "dart-lang/dart-vim-plugin"
 
 filetype plugin indent on
 
