@@ -10,7 +10,7 @@ set viminfo^=!
 set number
 set smarttab
 set ai
-set guifont=Inconsolata\ 10
+set guifont=Inconsolata\ for\ Powerline\ 10
 set nowrap
 set bs=2
 set incsearch
@@ -74,7 +74,7 @@ iab itneger integer
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:airline_powerline_fonts = 1
-let g:indentLine_char = '︙'
+"let g:indentLine_char = '︙'
 
 " load vundle
 filetype off
@@ -100,6 +100,8 @@ Plugin 'wincent/Command-T'
 Plugin 'scrooloose/syntastic'
 " Macro repository
 Plugin 'marvim'
+" Autocompletion
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
