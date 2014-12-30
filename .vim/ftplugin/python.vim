@@ -1,4 +1,5 @@
-setlocal ts=4
-setlocal sw=4
-
 noremap <Leader>l :PymodeLintAuto<CR>
+
+setlocal sw=2
+setlocal ts=2
+setlocal sts=2

@@ -2,9 +2,10 @@ export PATH=$PATH:/home/rob/bin
 
 # Aliases
 alias g='git'
+__git_complete g _git
 alias gch='git checkout'
+__git_complete gch _git_checkout
 alias gco='git commit -a'
-alias gp='git pull && git push'
 alias gph='git push'
 alias gpt='git push --tags'
 alias gpl='git pull'
@@ -12,19 +13,12 @@ alias gb='git branch'
 alias gst='git status'
 alias gft='git fetch --tags'
 alias gt='git tag'
-alias gtf='git tag -f'
 alias gm='git merge'
-alias gmm='git merge master'
 alias gcp='git cherry-pick'
 alias gd='git diff'
-alias gl='git log'
 alias ga='git add'
-alias c='cd'
-alias l='ls'
 alias v='gvim'
-alias sb='source bin/activate'
 alias py='python'
-alias nt='nosetests'
 
 # Stuff to show the active git branch in the console
 function parse_git_branch {
@@ -49,5 +43,3 @@ PS1="${debian_chroot:+($debian_chroot)}$GREEN\u@\h$BLUE \w $YELLOW\$(parse_git_b
 if [ -f ~/.bashlocal ]; then
   source ~/.bashlocal;
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
