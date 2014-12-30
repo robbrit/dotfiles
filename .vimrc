@@ -74,6 +74,7 @@ iab itneger integer
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:airline_powerline_fonts = 1
+let g:indentLine_char = '︙'
 
 " load vundle
 filetype off
@@ -83,6 +84,10 @@ call vundle#begin()
 " let Vundle manage Vundle
 Plugin 'gmarik/vundle'
 
+" Git integration
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'airblade/vim-gitgutter'
 " Show indent levels
 Plugin 'Yggdroot/indentLine'
 " Use indent levels as text objects
@@ -95,8 +100,6 @@ Plugin 'wincent/Command-T'
 Plugin 'scrooloose/syntastic'
 " Macro repository
 Plugin 'marvim'
-" Display git diff in the gutter
-Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
