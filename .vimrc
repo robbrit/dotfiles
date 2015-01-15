@@ -74,7 +74,6 @@ iab itneger integer
 
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:airline_powerline_fonts = 1
-"let g:indentLine_char = '︙'
 
 " load vundle
 filetype off
@@ -104,9 +103,5 @@ Plugin 'marvim'
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
-
-if filereadable("~/.vim/localrc")
-  source ~/.vim/localrc
-endif
 
 filetype plugin indent on

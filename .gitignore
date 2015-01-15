@@ -1,4 +1,4 @@
 .vim/.netrwhist
 .vim/bundle/*
-.vim/localrc
 .vim/cache
+.vim/plugin/localrc.vim
