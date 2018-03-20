@@ -10,7 +10,7 @@ set viminfo^=!
 set number
 set smarttab
 set ai
-set guifont=Inconsolata\ for\ Powerline\ 10
+set guifont=Inconsolata\ for\ Powerline\ 18
 set nowrap
 set bs=2
 set incsearch
@@ -41,9 +41,6 @@ highlight colorcolumn guibg=#151515
 
 " Some key bindings
 let mapleader=","
-noremap <C-T> <Esc>:tabnew 
-noremap <C-Tab> <Esc>gt
-noremap <C-S-Tab> <Esc>gT
 " disable Ex mode
 noremap Q <Esc>
 noremap <Leader>x <Esc>:x<CR>
@@ -75,6 +72,10 @@ iab itneger integer
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 let g:airline_powerline_fonts = 1
 
+let g:go_def_mapping_enabled = 0
+
+set completeopt-=preview
+
 " load vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -101,7 +102,19 @@ Plugin 'scrooloose/syntastic'
 Plugin 'marvim'
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
+" vim-go
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
+source /usr/share/vim/google/google.vim
 filetype plugin indent on
+syntax on
+
+autocmd BufReadPost *.go set ts=2
+autocmd BufWritePost *.go :GoImports
+autocmd BufWritePost *.go set ts=2
+
+noremap <C-T> <Esc>:tabnew 
+noremap <C-Tab> <Esc>gt
+noremap <C-S-Tab> <Esc>gT

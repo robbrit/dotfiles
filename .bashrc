@@ -19,6 +19,9 @@ alias gd='git diff'
 alias ga='git add'
 alias v='gvim'
 alias py='python'
+alias ls='ls --color=auto'
+alias sr='screen -R'
+alias curl='curl -w "\n"'
 
 # Stuff to show the active git branch in the console
 function parse_git_branch {
