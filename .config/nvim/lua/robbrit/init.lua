@@ -18,7 +18,8 @@ vim.keymap.set('n', '<leader>q', ":q<cr>", { desc = "Close file" })
 
 require("robbrit.lazy_init")
 
-require('cmp').setup {
+local cmp = require('cmp')
+cmp.setup {
   sources = {
     { name = 'nvim_lsp' }
   },
