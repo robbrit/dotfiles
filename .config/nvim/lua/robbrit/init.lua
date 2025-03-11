@@ -18,8 +18,8 @@ vim.keymap.set('n', '<leader>q', ":q<cr>", { desc = "Close file" })
 
 require("robbrit.lazy_init")
 
-vim.cmd.colorscheme("tokyonight")
-require('cmp').setup {
+local cmp = require('cmp')
+cmp.setup {
   sources = {
     { name = 'nvim_lsp' }
   },
@@ -32,7 +32,6 @@ require('cmp').setup {
 	}),
 }
 
-require("mason").setup()
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require("lspconfig")
@@ -78,8 +77,6 @@ local telescope = require("telescope.builtin")
 vim.keymap.set('n', '<leader>ff', telescope.find_files, { desc = "Telescope find file" })
 vim.keymap.set('n', '<leader>fs', telescope.live_grep, { desc = "Telescope search string" })
 
-local nvimtree = require("nvim-tree")
-nvimtree.setup()
 local ts_actions = require("telescope.actions")
 require("telescope").setup({
   pickers = {
@@ -101,5 +98,3 @@ require("telescope").setup({
 	},
 })
 
-local nvimtreeapi = require("nvim-tree.api")
-vim.keymap.set('n', '<leader>tt', nvimtreeapi.tree.toggle, { desc = "Tree: Toggle" })
