@@ -15,12 +15,17 @@ vim.g.mapleader = " "
 
 vim.keymap.set('n', '<leader>w', ":w<cr>", { desc = "Save file" })
 vim.keymap.set('n', '<leader>q', ":q<cr>", { desc = "Close file" })
+vim.keymap.set('n', '<leader>oo', vim.diagnostic.open_float, { desc = "Open Floating Message" })
 
 require("robbrit.lazy_init")
 
-require('cmp').setup {
+local cmp = require('cmp')
+cmp.setup {
   sources = {
-    { name = 'nvim_lsp' }
+    { name = 'nvim_lsp' },
+		per_filetype = {
+			codecompanion = { "codecompanion" },
+		}
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -99,4 +104,4 @@ require("telescope").setup({
   },
 })
 
-require("local")
+require("robbrit.local")
