@@ -23,18 +23,19 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' }
   },
-	mapping = cmp.mapping.preset.insert({
-		['<C-b>'] = cmp.mapping.scroll_docs(-4),
-		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-	}),
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require("lspconfig")
+
 lspconfig.gopls.setup({
   settings = {
     gopls = {
@@ -44,10 +45,10 @@ lspconfig.gopls.setup({
   },
 })
 lspconfig.ts_ls.setup({
-	capabilities = capabilities
+  capabilities = capabilities
 })
 lspconfig.eslint.setup({
-	capabilities = capabilities
+  capabilities = capabilities
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -84,17 +85,18 @@ require("telescope").setup({
       hidden = true
     }
   },
-	defaults = {
-		file_ignore_patterns = { "node_modules", ".git" },
-		mappings = {
-			-- I prefer to open things in a new tab.
-			n = {
-				["<CR>"] = ts_actions.select_tab,
-			},
-			i = {
-				["<CR>"] = ts_actions.select_tab,
-			},
-		},
-	},
+  defaults = {
+    file_ignore_patterns = { "node_modules", ".git" },
+    mappings = {
+      -- I prefer to open things in a new tab.
+      n = {
+        ["<CR>"] = ts_actions.select_tab,
+      },
+      i = {
+        ["<CR>"] = ts_actions.select_tab,
+      },
+    },
+  },
 })
 
+require("robbrit.local")
